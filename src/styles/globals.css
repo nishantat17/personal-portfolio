@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme inline {
+    --font-jetbrains-mono: var(--jetbrains-mono);
+    --font-sans: var(--roboto);
+    --font-bitcount: var(--bitcount);
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
