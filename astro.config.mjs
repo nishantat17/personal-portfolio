@@ -2,11 +2,21 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
+import vercel from "@astrojs/vercel";
+import node from "@astrojs/node";
+
 // https://astro.build/config
 export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
+    adapter: process.env.NODE_ENV == "development" ? node({
+        mode: "standalone",
+    }) : vercel({
+        webAnalytics: {
+            enabled: true
+        }
+    }),
     fonts: [{
         provider: fontProviders.google(),
         name: "JetBrains Mono",
@@ -27,5 +37,5 @@ export default defineConfig({
         cssVariable: "--bitcount",
         weights: [400, 500, 700],
         styles: ["normal"],
-    }]
+    }],
 });
