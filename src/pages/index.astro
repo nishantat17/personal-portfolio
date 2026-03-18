@@ -115,22 +115,40 @@ export const prerender = false;
 					>
 				</form>
 			</div>
+			<div class="flex items-center gap-4 mt-8">
+				<a href="https://x.com/nishantat17" target="_blank">
+					<i
+						class="hgi-stroke hgi-new-twitter"
+						class:list={["text-4xl"]}
+					>
+					</i>
+				</a>
+				<a href="https://github.com/nishantat17" target="_blank">
+					<i class="hgi-stroke hgi-github" class:list={["text-4xl"]}
+					></i>
+				</a>
+				<a href="https://linkedin.com/in/nishantat17" target="_blank">
+					<i
+						class="hgi-stroke hgi-linkedin-01"
+						class:list={["text-4xl"]}></i>
+				</a>
+			</div>
 		</section>
+		<footer class="pb-12"></footer>
 	</main>
-	<footer class="pb-12"></footer>
+
+	<script>
+		import { actions } from "astro:actions";
+
+		const form = document.querySelector("#contact-form");
+
+		form?.addEventListener("submit", async (event) => {
+			event.preventDefault();
+			const formData = new FormData(form as HTMLFormElement);
+			const { data, error } = await actions.sendEmail(formData);
+			if (!error) {
+				console.log("Something wrong");
+			}
+		});
+	</script>
 </Layout>
-
-<script>
-	import { actions } from "astro:actions";
-
-	const form = document.querySelector("#contact-form");
-
-	form?.addEventListener("submit", async (event) => {
-		event.preventDefault();
-		const formData = new FormData(form as HTMLFormElement);
-		const { data, error } = await actions.sendEmail(formData);
-		if (!error) {
-			console.log("Something wrong");
-		}
-	});
-</script>
