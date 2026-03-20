@@ -1,0 +1,25 @@
+---
+export const prerender = false;
+
+import { getEntry, render } from "astro:content";
+
+import ArticleLayout from "./../../layouts/ArticleLayout.astro";
+
+const { id } = Astro.params;
+if (id === undefined) {
+    return Astro.redirect("/404");
+}
+
+const article = await getEntry("article", id);
+
+if (article === undefined) {
+    return Astro.redirect("/404");
+}
+
+const { Content, headings } = await render(article);
+console.log(headings);
+---
+
+<ArticleLayout frontmatter={article.data}>
+    <Content />
+</ArticleLayout>

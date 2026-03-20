@@ -1,9 +1,12 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 @theme inline {
     --font-jetbrains-mono: var(--jetbrains-mono);
     --font-sans: var(--roboto);
+    --font-noto-serif: var(--noto-serif);
     --font-bitcount: var(--bitcount);
+    --font-inter: var(--inter);
 }
 
 html,

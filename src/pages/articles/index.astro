@@ -1,1 +1,27 @@
-<div>Articles</div>
+---
+import { getCollection } from "astro:content";
+import Navbar from "../../components/Navbar.astro";
+import { Font } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ArticleItem from "../../components/ArticleItem.astro";
+
+const articles = await getCollection("article");
+
+console.log(articles);
+---
+
+<Layout title="Articles">
+    <Font cssVariable="--noto-serif" />
+    <Navbar />
+    <div class="pt-20"></div>
+    <main class="px-4 max-w-screen-sm mx-auto">
+        <PageHeader title="All Articles" />
+        <section class="grid grid-cols-1 gap-12">
+            <ArticleItem />
+            <ArticleItem />
+            <ArticleItem />
+            <ArticleItem />
+        </section>
+    </main>
+</Layout>

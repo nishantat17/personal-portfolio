@@ -1,0 +1,30 @@
+---
+import { Font } from "astro:assets";
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+    <Font cssVariable="--roboto" />
+    <Font cssVariable="--jetbrains-mono" />
+    <Navbar />
+    <div class="pt-20"></div>
+    <div class="px-4 max-w-4xl mx-auto">
+        <header class="border-b">
+            <h1>{frontmatter.title}</h1>
+            <div>
+                <p>{frontmatter.description}</p>
+            </div>
+        </header>
+        <main class="prose prose-headings:font-jetbrains-mono">
+            <slot />
+        </main>
+    </div>
+    <div class="pb-12"></div>
+</Layout>
+
+<style>
+    @reference "tailwindcss";
+</style>

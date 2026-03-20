@@ -10,7 +10,7 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
-    adapter: process.env.NODE_ENV == "development" ? node({
+    adapter: import.meta.env.DEV ? node({
         mode: "standalone",
     }) : vercel({
         webAnalytics: {
@@ -33,9 +33,23 @@ export default defineConfig({
     },
     {
         provider: fontProviders.google(),
+        name: "Noto Serif",
+        cssVariable: "--noto-serif",
+        weights: [400],
+        styles: ["normal"],
+    },
+    {
+        provider: fontProviders.google(),
         name: "Bitcount",
         cssVariable: "--bitcount",
         weights: [400, 500, 700],
+        styles: ["normal"],
+    },
+    {
+        provider: fontProviders.google(),
+        name: "Inter",
+        cssVariable: "--inter",
+        weights: [400, 600],
         styles: ["normal"],
     }],
 });

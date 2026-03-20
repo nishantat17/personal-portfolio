@@ -1,5 +1,4 @@
 ---
-import "../styles/globals.css";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import ProjectCard from "../components/ProjectCard.astro";
@@ -16,28 +15,61 @@ console.log(result);
 export const prerender = false;
 ---
 
-<Layout>
+<Layout title="Nishant Bhagat">
 	<Font cssVariable="--roboto" />
-	<Font cssVariable="--bitcount" />
+	<Font cssVariable="--noto-serif" />
 	<Navbar />
-	<main class="px-4 max-w-5xl mx-auto">
+	<main class="px-4 max-w-screen-sm mx-auto">
 		<section id="hero" class="flex flex-col py-20">
-			<h1 class="font-bitcount text-6xl sm:text-8xl transition-all">
-				Nishant
-			</h1>
-			<h1 class="font-bitcount text-6xl sm:text-8xl transition-all">
-				Bhagat
-			</h1>
-			<p class="font-bold mt-4 text-2xl">I am a Backend Developer</p>
+			<h1 class="text-3xl font-bold">Nishant Bhagat</h1>
+			<div class="flex items-center gap-4 mt-8">
+				<a
+					href="https://x.com/nishantat17"
+					target="_blank"
+					class="relative hover:-translate-y-0.5 transition-[translate]"
+				>
+					<i
+						class="hgi-stroke hgi-new-twitter"
+						class:list={["text-2xl"]}
+					>
+					</i>
+				</a>
+				<a
+					href="https://github.com/nishantat17"
+					target="_blank"
+					class="relative hover:-translate-y-0.5 transition-[translate]"
+				>
+					<i class="hgi-stroke hgi-github" class:list={["text-2xl"]}
+					></i>
+				</a>
+				<a
+					href="https://linkedin.com/in/nishantat17"
+					target="_blank"
+					class="relative hover:-translate-y-0.5 transition-[translate]"
+				>
+					<i
+						class="hgi-stroke hgi-linkedin-01"
+						class:list={["text-2xl"]}></i>
+				</a>
+			</div>
+			<p
+				class="mt-4 text-base font-noto-serif p-4 rounded-md bg-white inset-shadow-sm"
+			>
+				Hey everyone! I am a <em>Backend Developer</em> who works with <b
+					><a href="https://cloord.com" target="_blank">Cloord</a></b
+				> but also <span class="bg-lime-200"
+					>ready to take freelance project at scale</span
+				>. I work with JavaScript technologies like TypeScript, Express,
+				React, etc. and integrate them with PostgreSQL to deploy on AWS.
+				If that's not enough I have little experience with Mobile Dev
+				using Expo. That's all nerdy things; Somehow on the interesting
+				side I'd like to play Ping Pong and Biking.
+			</p>
 		</section>
 
 		<section class="mb-12">
-			<h2 class="text-2xl font-semibold mb-4 font-jetbrains-mono">
-				Projects
-			</h2>
-			<div
-				class="flex items-center gap-4 overflow-x-scroll p-1 [&::-webkit-scrollbar]:hidden"
-			>
+			<h2 class="text-2xl font-semibold mb-4">Projects</h2>
+			<div class="grid grid-cols-2 gap-4">
 				<ProjectCard />
 				<ProjectCard />
 				<ProjectCard />
@@ -46,18 +78,14 @@ export const prerender = false;
 		</section>
 
 		<section class="mb-12">
-			<h2 class="text-2xl font-semibold mb-4 font-jetbrains-mono">
-				Articles
-			</h2>
+			<h2 class="text-2xl font-semibold mb-4">Articles</h2>
 			<div>
 				<BlogItem />
 			</div>
 		</section>
 
-		<section class="mb-12">
-			<h2 class="text-2xl font-semibold mb-4 font-jetbrains-mono">
-				Contact
-			</h2>
+		<section class="mb-12" id="contact">
+			<h2 class="text-2xl font-semibold mb-4">Send Message</h2>
 			<div>
 				<form
 					id="contact-form"
@@ -115,23 +143,15 @@ export const prerender = false;
 					>
 				</form>
 			</div>
-			<div class="flex items-center gap-4 mt-8">
-				<a href="https://x.com/nishantat17" target="_blank">
-					<i
-						class="hgi-stroke hgi-new-twitter"
-						class:list={["text-4xl"]}
-					>
-					</i>
-				</a>
+			<div class="flex items-center gap-2 mt-8">
+				<a href="https://x.com/nishantat17" target="_blank"> X </a>
 				<a href="https://github.com/nishantat17" target="_blank">
-					<i class="hgi-stroke hgi-github" class:list={["text-4xl"]}
-					></i>
+					Github
 				</a>
 				<a href="https://linkedin.com/in/nishantat17" target="_blank">
-					<i
-						class="hgi-stroke hgi-linkedin-01"
-						class:list={["text-4xl"]}></i>
+					LinkedIn
 				</a>
+				<span> or Send Message.</span>
 			</div>
 		</section>
 		<footer class="pb-12"></footer>
