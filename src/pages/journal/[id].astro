@@ -3,23 +3,22 @@ export const prerender = false;
 
 import { getEntry, render } from "astro:content";
 
-import ArticleLayout from "./../../layouts/ArticleLayout.astro";
+import JournalLayout from "./../../layouts/JournalLayout.astro";
 
 const { id } = Astro.params;
 if (id === undefined) {
     return Astro.redirect("/404");
 }
 
-const article = await getEntry("article", id);
+const article = await getEntry("journal", id);
 
 if (article === undefined) {
     return Astro.redirect("/404");
 }
 
-const { Content, headings } = await render(article);
-console.log(headings);
+const { Content } = await render(article);
 ---
 
-<ArticleLayout frontmatter={article.data}>
+<JournalLayout frontmatter={article.data}>
     <Content />
-</ArticleLayout>
+</JournalLayout>

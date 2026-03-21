@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import BlogItem from "../components/BlogItem.astro";
+import JournalItemHome from "../components/JournalItemHome.astro";
 
 import { Font } from "astro:assets";
 
@@ -16,7 +16,7 @@ export const prerender = false;
 ---
 
 <Layout title="Nishant Bhagat">
-	<Font cssVariable="--roboto" />
+	<Font cssVariable="--roboto" preload />
 	<Font cssVariable="--noto-serif" />
 	<Navbar />
 	<main class="px-4 max-w-screen-sm mx-auto">
@@ -55,10 +55,10 @@ export const prerender = false;
 			<p
 				class="mt-4 text-base font-noto-serif p-4 rounded-md bg-white inset-shadow-sm"
 			>
-				Hey everyone! I am a <em>Backend Developer</em> who works with <b
+				Hey everyone! I am a <em>Backend Developer</em> who works at <b
 					><a href="https://cloord.com" target="_blank">Cloord</a></b
 				> but also <span class="bg-lime-200"
-					>ready to take freelance project at scale</span
+					>ready to take freelance project</span
 				>. I work with JavaScript technologies like TypeScript, Express,
 				React, etc. and integrate them with PostgreSQL to deploy on AWS.
 				If that's not enough I have little experience with Mobile Dev
@@ -78,9 +78,9 @@ export const prerender = false;
 		</section>
 
 		<section class="mb-12">
-			<h2 class="text-2xl font-semibold mb-4">Articles</h2>
+			<h2 class="text-2xl font-semibold mb-4">Journal</h2>
 			<div>
-				<BlogItem />
+				<JournalItemHome />
 			</div>
 		</section>
 

@@ -1,5 +1,8 @@
 ---
 import { Font } from "astro:assets";
+import { Image } from "astro:assets";
+
+import Logo from "../assets/logo.png";
 ---
 
 <nav class="px-4 py-4 fixed top-0 w-full backdrop-blur-sm shadow-xs z-50">
@@ -7,15 +10,14 @@ import { Font } from "astro:assets";
     <Font cssVariable="--bitcount" preload />
 
     <div class="flex items-center justify-between max-w-2xl mx-auto">
-        <span class="font-bitcount text-3xl">NB</span>
+        <a href="/#hero">
+            <Image src={Logo} alt="Logo" height={18} />
+        </a>
         <ul
             class="flex items-center justify-center gap-2 *:ml-4 font-jetbrains-mono"
         >
-            <li>
-                <a href="/#hero">Home</a>
-            </li>
             <li><a href="/projects">Projects</a></li>
-            <li><a href="/articles">Articles</a></li>
+            <li><a href="/journal">Journal</a></li>
             <li><a href="/#contact">Contact</a></li>
         </ul>
     </div>

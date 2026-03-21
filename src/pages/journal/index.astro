@@ -4,24 +4,25 @@ import Navbar from "../../components/Navbar.astro";
 import { Font } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import PageHeader from "../../components/PageHeader.astro";
-import ArticleItem from "../../components/ArticleItem.astro";
+import JournalItem from "../../components/JournalItem.astro";
 
-const articles = await getCollection("article");
-
-console.log(articles);
+const journal = await getCollection("journal");
 ---
 
 <Layout title="Articles">
-    <Font cssVariable="--noto-serif" />
+    <Font cssVariable="--roboto" preload />
     <Navbar />
-    <div class="pt-20"></div>
     <main class="px-4 max-w-screen-sm mx-auto">
-        <PageHeader title="All Articles" />
+        <PageHeader
+            title="Jornal Archive"
+            note="Where I document my Coding Journey."
+        />
         <section class="grid grid-cols-1 gap-12">
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
+            {
+                journal.map((journalItem) => {
+                    return <JournalItem item={journalItem} />;
+                })
+            }
         </section>
     </main>
 </Layout>

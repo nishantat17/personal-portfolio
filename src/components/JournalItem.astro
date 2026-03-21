@@ -1,0 +1,30 @@
+---
+import type { RenderedContent } from "astro:content";
+import type { InferEntrySchema } from "astro:content";
+
+type JournalItemProps = {
+    id: string;
+    body?: string;
+    collection: "journal";
+    data: InferEntrySchema<"journal">;
+    rendered?: RenderedContent;
+    filePath?: string;
+};
+
+export interface Props {
+    item: JournalItemProps;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+    <a href=`journal/${item.id}`>
+        <h2 class="text-xl font-semibold tracking-tight underline">
+            {item.data.title}
+        </h2>
+    </a>
+    <p class="max-w-[80ch] line-clamp-2 mt-2 font-inter">
+        {item.body}
+    </p>
+</div>

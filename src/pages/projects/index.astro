@@ -1,7 +1,26 @@
-<p>Projects</p>
+---
+import { getCollection } from "astro:content";
+import Navbar from "../../components/Navbar.astro";
+import { Font } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ProjectItem from "../../components/ProjectItem.astro";
 
-<style>
-    p {
-        color: red;
-    }
-</style>
+const articles = await getCollection("journal");
+
+console.log(articles);
+---
+
+<Layout title="Projects">
+    <Font cssVariable="--roboto" preload />
+    <Navbar />
+    <main class="px-4 max-w-screen-sm mx-auto">
+        <PageHeader
+            title="Projects"
+            note="Maybe you'll find something interesting."
+        />
+        <section class="grid grid-cols-1 gap-12">
+            <ProjectItem />
+        </section>
+    </main>
+</Layout>
