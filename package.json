@@ -21,6 +21,7 @@
     "@vercel/speed-insights": "2.0.0",
     "astro": "^6.0.4",
     "resend": "6.9.4",
+    "sharp": "0.34.5",
     "tailwindcss": "4.2.1"
   },
   "devDependencies": {

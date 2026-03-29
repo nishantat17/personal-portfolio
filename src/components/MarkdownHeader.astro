@@ -1,0 +1,19 @@
+---
+const { title, date, description } = Astro.props;
+---
+
+<header class="mt-20 pb-8">
+  <h1 class="text-3xl font-bold mb-2">
+    {title}
+  </h1>
+  <p class="text-base text-slate-400 mb-1">{description}</p>
+  <div class="text-xs bg-gray-200 px-2 py-1 rounded-full w-fit">
+    {
+      date.toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    }
+  </div>
+</header>

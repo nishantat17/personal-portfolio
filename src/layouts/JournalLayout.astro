@@ -2,29 +2,28 @@
 import { Font } from "astro:assets";
 import Layout from "./Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import MarkdownHeader from "../components/MarkdownHeader.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-    <Font cssVariable="--roboto" />
-    <Font cssVariable="--jetbrains-mono" />
-    <Navbar />
-    <div class="pt-20"></div>
-    <div class="px-4 max-w-4xl mx-auto">
-        <header class="border-b">
-            <h1>{frontmatter.title}</h1>
-            <div>
-                <p>{frontmatter.description}</p>
-            </div>
-        </header>
-        <main class="prose prose-headings:font-jetbrains-mono">
-            <slot />
-        </main>
-    </div>
-    <div class="pb-12"></div>
+  <Font cssVariable="--inter" />
+  <Font cssVariable="--jetbrains-mono" />
+  <Navbar />
+  <div class="px-4 max-w-screen-sm mx-auto">
+    <MarkdownHeader
+      title={frontmatter.title}
+      description={frontmatter.description}
+      date={frontmatter.pubDate}
+    />
+    <main class="prose prose-p:font-inter">
+      <slot />
+    </main>
+  </div>
+  <div class="pb-12"></div>
 </Layout>
 
 <style>
-    @reference "tailwindcss";
+  @reference "tailwindcss";
 </style>
