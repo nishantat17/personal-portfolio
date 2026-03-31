@@ -1,7 +1,7 @@
-import { c as createComponent, $ as $$Font } from './_astro_assets_D7VNpbRg.mjs';
-import { m as maybeRenderHead, r as renderTemplate, f as addAttribute, b as renderComponent } from './entrypoint_D5Rryj5R.mjs';
-import { g as getEntry, $ as $$Layout, a as $$Navbar, b as renderScript } from './Navbar_CKgnTnbA.mjs';
-import { a as actions } from './server_CmSSOvHt.mjs';
+import { c as createComponent, $ as $$Font } from './_astro_assets_ygs5j6hy.mjs';
+import { m as maybeRenderHead, r as renderTemplate, f as addAttribute, b as renderComponent } from './entrypoint_CZyKt9aM.mjs';
+import { g as getEntry, $ as $$Layout, a as $$Navbar, b as renderScript } from './Navbar_DRYxtM_w.mjs';
+import { a as actions } from './server_DASCuxah.mjs';
 
 const $$ProjectCard = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<div class="relative border bg-white border-gray-200 rounded-md p-4 transition-[translate] hover:-translate-y-0.5"> <h3>Project Card</h3> <p>Project short description</p> </div>`;

@@ -1,4 +1,4 @@
-import { E as typeHandlers, F as types, j as AstroError, N as NoImageMetadata, G as FailedToFetchRemoteImageDimensions, a as isRemoteAllowed, H as RemoteImageNotAllowed, I as InvalidComponentArgs, J as joinPaths, K as ExpectedImage, i as isRemotePath, L as LocalImageUsedWrongly, M as MissingImageDimension, O as UnsupportedImageFormat, P as IncompatibleDescriptorOptions, Q as UnsupportedImageConversion, S as InvalidImageService, T as ExpectedImageOptions, V as ExpectedNotESMImage, W as ImageMissingAlt, m as maybeRenderHead, f as addAttribute, t as spreadAttributes, r as renderTemplate, X as FontFamilyNotFound, u as unescapeHTML } from './entrypoint_D5Rryj5R.mjs';
+import { E as typeHandlers, F as types, j as AstroError, N as NoImageMetadata, G as FailedToFetchRemoteImageDimensions, a as isRemoteAllowed, H as RemoteImageNotAllowed, I as InvalidComponentArgs, J as joinPaths, K as ExpectedImage, i as isRemotePath, L as LocalImageUsedWrongly, M as MissingImageDimension, O as UnsupportedImageFormat, P as IncompatibleDescriptorOptions, Q as UnsupportedImageConversion, S as InvalidImageService, T as ExpectedImageOptions, V as ExpectedNotESMImage, W as ImageMissingAlt, m as maybeRenderHead, f as addAttribute, t as spreadAttributes, r as renderTemplate, X as FontFamilyNotFound, u as unescapeHTML } from './entrypoint_CZyKt9aM.mjs';
 
 function isESMImportedImage(src) {
   return typeof src === "object" || typeof src === "function" && "src" in src;
@@ -316,13 +316,6 @@ function isLocalService(service) {
   }
   return "transform" in service;
 }
-function parseQuality(quality) {
-  let result = Number.parseInt(quality);
-  if (Number.isNaN(result)) {
-    return quality;
-  }
-  return result;
-}
 const sortNumeric = (a, b) => a - b;
 function verifyOptions(options) {
   if (!options.src || !isRemoteImage(options.src) && !isESMImportedImage(options.src)) {
@@ -376,6 +369,7 @@ function verifyOptions(options) {
   }
 }
 const baseService = {
+  propertiesToHash: DEFAULT_HASH_PROPS,
   validateOptions(options) {
     verifyOptions(options);
     if (!options.format) {
@@ -564,7 +558,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_fSHdLqiN.mjs'
+      './build-service_BZMfLRD5.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -1348,7 +1342,7 @@ const $$Font = createComponent(($$result, $$props, $$slots) => {
 }, "/home/nishant/coding/personal-portfolio/node_modules/.pnpm/astro@6.0.5_@upstash+redis@1.37.0_@vercel+functions@3.4.3_jiti@2.6.1_lightningcss@1.31.1_rollup@4.59.0/node_modules/astro/components/Font.astro", void 0);
 
 const assetQueryParams = undefined;
-					const imageConfig = {"endpoint":{"route":"/_image"},"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"responsiveStyles":false};
+					const imageConfig = {"endpoint":{"route":"/_image"},"service":{"entrypoint":"@astrojs/vercel/build-image-service","config":{"sizes":[640,750,828,1080,1200,1920,2048,3840],"domains":[],"remotePatterns":[]}},"domains":[],"remotePatterns":[],"responsiveStyles":false,"breakpoints":[640,750,828,1080,1200,1920,2048,3840]};
 					Object.defineProperty(imageConfig, 'assetQueryParams', {
 						value: assetQueryParams,
 						enumerable: false,
@@ -1365,4 +1359,4 @@ const _astro_assets = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
   isLocalService
 }, Symbol.toStringTag, { value: 'Module' }));
 
-export { $$Font as $, VALID_INPUT_FORMATS as V, _astro_assets as _, $$Image as a, baseService as b, createComponent as c, getConfiguredImageService as g, imageConfig as i, lookup as l, parseQuality as p };
+export { $$Font as $, VALID_INPUT_FORMATS as V, _astro_assets as _, $$Image as a, isESMImportedImage as b, createComponent as c, baseService as d, getConfiguredImageService as g, imageConfig as i, lookup as l };

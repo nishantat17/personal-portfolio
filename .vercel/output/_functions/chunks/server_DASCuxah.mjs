@@ -1,4 +1,4 @@
-import { h as createActionsProxy, p as pipelineSymbol, j as AstroError, k as ActionCalledFromServerError } from './entrypoint_D5Rryj5R.mjs';
+import { h as createActionsProxy, p as pipelineSymbol, j as AstroError, k as ActionCalledFromServerError } from './entrypoint_CZyKt9aM.mjs';
 
 const actions = createActionsProxy({
   handleAction: async (param, path, context) => {
